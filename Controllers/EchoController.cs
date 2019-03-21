@@ -17,13 +17,7 @@ namespace sample_netcore_app.Controllers
         }
 
         [HttpGet]
-        public ActionResult<string> Get()
-        {
-            return "";
-        }
-
-        [HttpGet("{echo}")]
-        public ActionResult<string> Get(string echo)
+        public ActionResult<string> Get([FromQuery(Name="echo")]string echo)
         {
             return _provider.calculateEchoValue(echo);
         }
