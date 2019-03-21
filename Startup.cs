@@ -26,6 +26,7 @@ namespace sample_netcore_app
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IEchoProvider, EchoProvider>();
             services.AddSingleton<IFibonacciProvider, FibonacciProvider>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
