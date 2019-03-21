@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using sample_netcore_app.Providers;
 
 namespace sample_netcore_app.Controllers
 {
@@ -10,36 +11,25 @@ namespace sample_netcore_app.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IFibonnaciProvider _provider;
+
+        public ValuesController(IFibonnaciProvider provider)
+        {
+            _provider = provider;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<int> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _provider.calculateFibonnaciValue(1);
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{position}")]
+        public ActionResult<int> Get(int position)
         {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return _provider.calculateFibonnaciValue(position);
         }
     }
 }
