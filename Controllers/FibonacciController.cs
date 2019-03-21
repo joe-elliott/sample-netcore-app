@@ -9,27 +9,25 @@ namespace sample_netcore_app.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class FibonacciController : ControllerBase
     {
-        private IFibonnaciProvider _provider;
+        private IFibonacciProvider _provider;
 
-        public ValuesController(IFibonnaciProvider provider)
+        public FibonacciController(IFibonacciProvider provider)
         {
             _provider = provider;
         }
 
-        // GET api/values
         [HttpGet]
         public ActionResult<int> Get()
         {
-            return _provider.calculateFibonnaciValue(1);
+            return _provider.calculateFibonacciValue(1);
         }
 
-        // GET api/values/5
         [HttpGet("{position}")]
         public ActionResult<int> Get(int position)
         {
-            return _provider.calculateFibonnaciValue(position);
+            return _provider.calculateFibonacciValue(position);
         }
     }
 }
