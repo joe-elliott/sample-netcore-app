@@ -17,13 +17,7 @@ namespace sample_netcore_app.Controllers
         }
 
         [HttpGet]
-        public ActionResult<int> Get()
-        {
-            return _provider.calculateFibonacciValue(1);
-        }
-
-        [HttpGet("{position}")]
-        public ActionResult<int> Get(int position)
+        public ActionResult<int> Get([FromQuery(Name="pos")]int position)
         {
             return _provider.calculateFibonacciValue(position);
         }
