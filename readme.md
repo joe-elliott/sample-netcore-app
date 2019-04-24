@@ -12,6 +12,6 @@ This simple project only supports two endpoints:
 
 Requires an integer value.  Returns the fibonacci sequence calculated to the requested position.  0 based.
 
-`/api/echecho=<value>`
+`/api/echo?echo=<value>`
 
-Echoes the passed in query parameter. s
+Echoes the passed in query parameter. 
