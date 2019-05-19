@@ -1,9 +1,9 @@
-FROM microsoft/dotnet:2.2.5-sdk as build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 as build
 
 COPY . /src
 RUN dotnet publish /src/sample-netcore-app.csproj --configuration release --output /publish
     
-FROM microsoft/dotnet:2.2.5-aspnetcore-runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2.5
 
 WORKDIR /app
 COPY --from=build /publish /app
