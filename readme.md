@@ -6,7 +6,7 @@ Check [netcore-kubernetes-profiling](https://github.com/number101010/netcore-kub
 
 ## endpoints
 
-This simple project only supports two endpoints:
+This simple project only supports a few endpoints:
 
 `/api/fibonacci?pos=<value>`
 
@@ -14,4 +14,8 @@ Requires an integer value.  Returns the fibonacci sequence calculated to the req
 
 `/api/echo?echo=<value>`
 
-Echoes the passed in query parameter. 
+Echoes the passed in query parameter.
+
+`/api/fail`
+
+Terminates the application using `Environment.FailFast()`.
