@@ -1,9 +1,9 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 as build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1 as build
 
 COPY . /src
 RUN dotnet publish /src/sample-netcore-app.csproj --configuration release --output /publish
     
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2.5
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.11
 
 WORKDIR /app
 COPY --from=build /publish /app
